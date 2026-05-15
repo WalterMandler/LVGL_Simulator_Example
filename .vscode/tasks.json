@@ -1,0 +1,46 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Kill, Then Build",
+			"detail": "Kill the simulator if it is open. Build using CMake.",
+			"type": "shell",
+			"command": "Stop-Process -Name main -ErrorAction SilentlyContinue ; cmake --build build --parallel",
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"group": {
+				"kind": "build",
+				"isDefault": false,
+			},
+			"presentation": {
+				"reveal": "always",
+				"panel":"dedicated",
+				"close": true,
+			},
+		},
+		{
+			"label": "Run",
+			"detail": "Kill the simulator if it is open. Build using CMake. Run the executable.",
+			"type": "shell",
+			"command": "./bin/main.exe",
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"runOptions": {
+				"instanceLimit": 1,
+				"instancePolicy": "terminateNewest",
+			},
+			"dependsOn": "Kill, Then Build",
+			"group": {
+				"kind": "build",
+				"isDefault": true,
+			},
+			"presentation": {
+				"reveal": "always",
+				"panel": "dedicated",
+				"close": true,
+			},
+		},
+	]
+}

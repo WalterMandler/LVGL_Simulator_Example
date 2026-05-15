@@ -1,0 +1,18 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Debug LVGL simulator with gdb",
+			"type": "cppdbg",
+			"request": "launch",
+			"program": "${workspaceFolder}/bin/main.exe",
+			"cwd": "${workspaceFolder}",
+			"preLaunchTask": "Kill, Then Build",
+			"stopAtEntry": false,
+			"windows": {
+				"MIMode": "gdb",
+				"miDebuggerPath": "C:/msys64/ucrt64/bin/gdb.exe"
+			}
+		}
+	]
+}
