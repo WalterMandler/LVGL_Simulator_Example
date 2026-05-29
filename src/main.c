@@ -4,14 +4,7 @@
 #include <Windows.h>
 #include <stdio.h>
 
-int main(int argc, char** argv) {
-	// Unused command line arguments (required by SDL).
-	(void)argc;
-	(void)argv;
-
-	// Initialize LVGL.
-	lv_init();
-
+static void configure_simulator() {
 	// Use SDL to create a display for lvgl.
 	lv_display_t* display1 = lv_sdl_window_create(480, 320);
 	lv_display_set_default(display1);
@@ -34,6 +27,18 @@ int main(int argc, char** argv) {
 	// Create a default group for widgets.
 	lv_group_t* default_widget_group = lv_group_create();
 	lv_group_set_default(default_widget_group);
+}
+
+int main(int argc, char** argv) {
+	// Unused command line arguments (required by SDL).
+	(void)argc;
+	(void)argv;
+
+	// Initialize LVGL.
+	lv_init();
+
+	// Configure the simulator.
+	configure_simulator();
 
 	// Create the GUI.
 	BasicButton();
