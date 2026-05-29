@@ -26,7 +26,7 @@
  *====================*/
 
 /** Color depth: 1 (I1), 8 (L8), 16 (RGB565), 24 (RGB888), 32 (XRGB8888) */
-#define LV_COLOR_DEPTH 32
+#define LV_COLOR_DEPTH 16
 
 /*=========================
    STDLIB WRAPPER SETTINGS
@@ -87,7 +87,7 @@
  *====================*/
 
 /** Default display refresh, input device read and animation step period. */
-#define LV_DEF_REFR_PERIOD  10      /**< [ms] */
+#define LV_DEF_REFR_PERIOD  33      /**< [ms] */
 
 /** Default Dots Per Inch. Used to initialize default sizes such as widgets sized, style paddings.
  * (Not so important, you can adjust it to modify default sizes and spaces.) */
@@ -106,7 +106,7 @@
  * - LV_OS_MQX
  * - LV_OS_SDL2
  * - LV_OS_CUSTOM */
-#define LV_USE_OS   LV_OS_WINDOWS
+#define LV_USE_OS   LV_OS_NONE
 
 #if LV_USE_OS == LV_OS_CUSTOM
     #define LV_OS_CUSTOM_INCLUDE <stdint.h>
@@ -995,17 +995,17 @@
 #endif
 
 /** LODEPNG decoder library */
-#define LV_USE_LODEPNG 1
+#define LV_USE_LODEPNG 0
 
 /** PNG decoder(libpng) library */
 #define LV_USE_LIBPNG 0
 
 /** BMP decoder library */
-#define LV_USE_BMP 1
+#define LV_USE_BMP 0
 
 /** JPG + split JPG decoder library.
  *  Split JPG is a custom format optimized for embedded systems. */
-#define LV_USE_TJPGD 1
+#define LV_USE_TJPGD 0
 
 /** libjpeg-turbo decoder library.
  *  - Supports complete JPEG specifications and high-performance JPEG decoding. */

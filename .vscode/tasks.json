@@ -5,9 +5,9 @@
 			"label": "Kill, Then Build",
 			"detail": "Kill the simulator if it is open. Build using CMake.",
 			"type": "shell",
-			"command": "Stop-Process -Name main -ErrorAction SilentlyContinue ; cmake --build build --parallel",
+			"command": "Stop-Process -Name main -Force -ErrorAction SilentlyContinue ; cmake --build build --parallel",
 			"options": {
-				"cwd": "${workspaceFolder}"
+				"cwd": "${workspaceFolder}",
 			},
 			"group": {
 				"kind": "build",
@@ -15,9 +15,13 @@
 			},
 			"presentation": {
 				"reveal": "always",
-				"panel":"dedicated",
-				"close": true,
+				"panel": "shared",
+				"clear": false,
+				"close": false,
 			},
+			"problemMatcher": [
+				"$gcc"
+			],
 		},
 		{
 			"label": "Run",
@@ -29,7 +33,7 @@
 			},
 			"runOptions": {
 				"instanceLimit": 1,
-				"instancePolicy": "terminateNewest",
+				"instancePolicy": "terminateOldest",
 			},
 			"dependsOn": "Kill, Then Build",
 			"group": {
@@ -38,7 +42,8 @@
 			},
 			"presentation": {
 				"reveal": "always",
-				"panel": "dedicated",
+				"panel": "shared",
+				"clear": false,
 				"close": true,
 			},
 		},
