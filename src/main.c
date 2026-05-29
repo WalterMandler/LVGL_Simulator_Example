@@ -1,4 +1,4 @@
-#include "BasicButton.h"
+#include "basic_button.h"
 #include "lvgl.h"
 #include <SDL.h>
 #include <Windows.h>
@@ -41,7 +41,7 @@ int main(int argc, char** argv) {
 	configure_simulator();
 
 	// Create the GUI.
-	BasicButton();
+	basic_button();
 
 	// Periodically call the lvgl timer handler.
 	while (1) {
